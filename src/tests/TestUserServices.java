@@ -44,7 +44,7 @@ public class TestUserServices {
   }
 
   @Test
-  public void testRegisterTwoUsersMockitoClock() {
+  public void testRegisterTwoUsersMockitoSpy() {
 
     osAuditLog = new OSAuditLog();
     osUserStore = new OSUserStore();
@@ -69,7 +69,7 @@ public class TestUserServices {
   }
 
   @Test
-  public void testRegisterTwoUsersMockitoClock2()
+  public void testRegisterTwoUsersMockitoVerify()
   {
     osUserStore = new OSUserStore();
     osTimeSource = new OSTimeSource();
@@ -84,7 +84,7 @@ public class TestUserServices {
 
     //userService.register("bob");
     //assertEquals(1, userService.users().size());
-    verify(mockedOSAuditLog).log("user", "register", "bob");
+    verify(mockedOSAuditLog).log("user", "register", "bobby");
 
     userService.register("alice");
     assertEquals(2, userService.users().size());
